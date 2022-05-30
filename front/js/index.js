@@ -1,6 +1,8 @@
+/*lien pour récuperer des canapés*/
+
 const url = "http://localhost:3000/api/products";
 
-function ajax(url) {
+function ajax(url) { /*ajax ou sans*/
   fetch(url)
     .then(function (res) {
       if (res.ok) {
@@ -9,7 +11,7 @@ function ajax(url) {
     })
 
     .then(function (articles) {
-        
+
       /*console.log(articles);*/
 
       for (let article of articles) {
