@@ -6,6 +6,7 @@ var id = actualUrl.searchParams.get("id");
 
 const url = "http://localhost:3000/api/products/" + id;
 
+ajax(url);
 
 function ajax(url) {
   fetch(url)
@@ -156,4 +157,3 @@ function gestionPanier(id, name) {
   });
 }
 
-ajax(url);

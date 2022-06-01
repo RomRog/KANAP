@@ -3,6 +3,8 @@
 const url = "http://localhost:3000/api/products";
 console.log('test');
 
+ajax(url);
+
 function ajax(url) {
   fetch(url)
     .then(function (res) {
@@ -70,4 +72,3 @@ function addItemAtHome(idItem, imageUrl, imageAlt, name, description) {
   articleItem.append(descriptionItem);
 }
 
-ajax(url);

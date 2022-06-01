@@ -1,4 +1,5 @@
 /*Récupèrer l'id transmis dans le lien pour l'afficher*/
+getOrderId();
 
 function getOrderId() {
     let actualUrl = document.location.href;
@@ -10,4 +11,4 @@ function getOrderId() {
     document.getElementById("orderId").textContent = id;
   }
   
-  getOrderId();
+  
