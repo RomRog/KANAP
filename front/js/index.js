@@ -1,30 +1,34 @@
 /*lien pour récuperer des canapés*/
 
 const url = "http://localhost:3000/api/products";
+console.log('test');
 
-function ajax(url) { /*ajax ou sans*/
+function ajax(url) {
   fetch(url)
     .then(function (res) {
+      console.log(res);
       if (res.ok) {
-        return res.json();
+        res.json().then(function (articles) {
+
+          console.log(articles);
+
+          for (let article of articles) {
+            addItemAtHome(
+              article._id,
+              article.imageUrl,
+              article.altTxt,
+              article.name,
+              article.description
+            );
+          }
+        }).catch(function (err) {
+          console.log(err);
+        })
       }
+    }).catch(function (err) {
+      console.log(err);
     })
 
-    .then(function (articles) {
-
-      /*console.log(articles);*/
-
-      for (let article of articles) {
-        addItemAtHome(
-          article._id,
-          article.imageUrl,
-          article.altTxt,
-          article.name,
-          article.description
-        );
-      }
-    })
-    
     .catch(function (err) {
       console.log(err);
     });
@@ -34,7 +38,7 @@ function addItemAtHome(idItem, imageUrl, imageAlt, name, description) {
   var items = document.getElementById("items");
 
   /*création du liens de l'article*/
-  
+
   let linkItem = document.createElement("a");
   linkItem.href = "product.html?id=" + idItem;
   items.append(linkItem);
@@ -65,3 +69,5 @@ function addItemAtHome(idItem, imageUrl, imageAlt, name, description) {
   descriptionItem.classList.add("productDescription");
   articleItem.append(descriptionItem);
 }
+
+ajax(url);
