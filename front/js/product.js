@@ -32,6 +32,8 @@ function ajax(url) {
       console.log(err);
     });
 }
+
+/*Créer une page d'article*/
 function createArticlePage(
   imageUrl,
   imageAlt,
@@ -119,7 +121,7 @@ function gestionPanier(id, name) {
       /*Si le panier récupéré (localStorage) contient un ou plusieurs articles*/
 
       if (basket) {
-        console.log("Panier contenant du contenu, je verrifie");
+        console.log("Panier contenant du contenu, je verifie");
 
         /*On cherche ici parmis les articles du panier récupérer si celui qu'on souhaite ajouter y figure déjà*/
 
