@@ -1,7 +1,6 @@
 /*lien pour récuperer des canapés*/
 
 const url = "http://localhost:3000/api/products";
-console.log('test');
 
 ajax(url);
 
@@ -10,24 +9,27 @@ function ajax(url) {
     .then(function (res) {
       console.log(res);
       if (res.ok) {
-        res.json().then(function (articles) {
+        res
+          .json()
+          .then(function (articles) {
+            console.log(articles);
 
-          console.log(articles);
-
-          for (let article of articles) {
-            addItemAtHome(
-              article._id,
-              article.imageUrl,
-              article.altTxt,
-              article.name,
-              article.description
-            );
-          }
-        }).catch(function (err) {
-          console.log(err);
-        })
+            for (let article of articles) {
+              addItemAtHome(
+                article._id,
+                article.imageUrl,
+                article.altTxt,
+                article.name,
+                article.description
+              );
+            }
+          })
+          .catch(function (err) {
+            console.log(err);
+          });
       }
-    }).catch(function (err) {
+    })
+    .catch(function (err) {
       console.log(err);
     })
 
@@ -71,4 +73,3 @@ function addItemAtHome(idItem, imageUrl, imageAlt, name, description) {
   descriptionItem.classList.add("productDescription");
   articleItem.append(descriptionItem);
 }
-

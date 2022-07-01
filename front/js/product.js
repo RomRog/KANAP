@@ -93,11 +93,9 @@ const popupPanier = (name) => {
 };
 
 function gestionPanier(id, name) {
-
   /*Ajout de l'article demandé dans le panier*/
 
   document.getElementById("addToCart").addEventListener("click", (event) => {
-
     /*Verifier que la quantité et la couleur sont renseignées*/
 
     if (
@@ -105,7 +103,6 @@ function gestionPanier(id, name) {
       document.getElementById("quantity").value <= 100 &&
       document.getElementById("colors").value != ""
     ) {
-
       /*récupération du localStorage actuel*/
 
       let basket = JSON.parse(localStorage.getItem("kanapBasket"));
@@ -158,4 +155,3 @@ function gestionPanier(id, name) {
     }
   });
 }
-
